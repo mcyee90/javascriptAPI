@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='X-UA-Compatible' content="ie=edge">
+    <title>Belly Button Data Project</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/styles.css') }}" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Belly Button Biodiversity Dashboard</h1>
+            <h4>Use the interactive charts below to explore the dataset</h4>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!--Dropdown Selection and Sample MetaData Box-->
+            <div class="col-md-2">
+                <div class="well">
+                    <h3>Select Sample</h3>
+                    <select id="select-dataset" onchange="optionChanged(this.value)">
+                    </select> 
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3>Sample MetaData</h3></div>
+                    <div class="panel-body" id="metadata-sample"></div>
+                </div>
+            </div>
+            <!--Pie Chart-->
+            <div class="col-md-5">
+                <h3>Bacteria Present in Sample</h3>
+                <div id="pie">
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <h3>Washing Frequency of Sample</h3>
+                <div id="gauge">
+                </div>
+            </div>
+        </div>   
+    </div>
+    <!--Bubble Chart-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Sample Value vs. OTU ID</h3>
+                <div id="bubble">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='JS/app.js') }}"></script>
+</body>
+</html>
